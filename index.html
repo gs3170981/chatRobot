@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/myChatRobot.js"></script>
+	</head>
+	<body>
+		<input id="chatIntelligence" type="button" value="点击我弹出" />
+	</body>
+	<script>
+		$(function(){
+			$('#chatIntelligence').click(function(){
+			 	var is=$('#chatIntelligence');
+			 	if(!$(is).prop('disabled'))$(is).prop('disabled',true);
+				//配置项
+				myChatRobot({
+					klass:{
+						p_w:660,
+						p_t_h:82,
+						p_b_l_w:518,
+						p_b_l_1_h:435,
+						p_b_l_2_h:32,
+						p_b_l_3_h:80,
+						p_b_l_4_h:48,
+						p_b_r_h:595,
+						p_r:'0px',
+						p_b:'0px',
+					},
+					option:{
+						send:function(data){
+							$('#myChatRobotList').append("<div style='overflow: hidden;padding: 10px;'>"
+								+"<img src='img/user.jpg' style='height: 40px;width: 40px;float: right;border-radius: 50%;' />"
+								+"<p style='float:right;padding: 10px;max-width: 400px;margin:0 10px 0 0;border-radius:10px;background: #ffa6a6;word-wrap:break-word;'>"+data+"</p>"
+							+"</div>");
+							$('#myChatRobotVal').val('');
+						//这里处理正确的回调
+//							$.ajax({
+//								type:"post",
+//								url:"",
+//								async:true,
+//								data:{
+//									val:data
+//								},
+//								success:function(res){
+//									$('#myChatRobotList').append("<div style='overflow: hidden;padding: 10px;'>"
+//										+"<img src='img/service.jpg' style='height:40px;width:40px;float:left;border-radius: 50%;' />"
+//										+"<p style='float:left;padding:10px;max-width:400px;margin:0 0 0 10px;border-radius:10px;background:#ffa6a6;word-wrap:break-word;'>"+res+"</p>"
+//									+"</div>");
+//								}
+//							});
+						},
+						close:function(){
+							$('#myChatRobot').remove();
+							$(is).prop('disabled',false);
+						},
+						append:'body'
+					}
+					
+				})
+			})
+		})
+	</script>
+</html>
