@@ -54,7 +54,7 @@ function myChatRobot(rel){
 				+"<li id='myChatRobotList' style='height:"+klass.p_b_l_1_h+"px;overflow-x:hidden;overflow-y:auto;background:#fff4f4;'></li>"
 				+"<li style='height:"+klass.p_b_l_2_h+"px;background:#ffeded;'></li>"
 				+"<li style='height:"+klass.p_b_l_3_h+"px;'>"
-					+"<textarea id='myChatRobotVal' style='background:#fff6f6;border:none;resize:none;height:100%;width:514px;outline:none;font-family:微软雅黑;'></textarea>"
+					+"<textarea id='myChatRobotVal' style='background:#fff6f6;border:none;resize:none;height:100%;width:"+(klass.p_b_l_w-4)+"px;outline:none;font-family:微软雅黑;'></textarea>"
 				+"</li>"
 				+"<li style='height:"+klass.p_b_l_4_h+"px;background:#fff4f4;border-bottom-left-radius:5px;text-align:center;'>"
 					+"<span id='myChatRobotSend' style='float:right;margin:11px 20px 0 0;width:70px;background:#ff7a32;cursor:default;border-radius:3px'>发送</span>"
