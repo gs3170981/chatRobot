@@ -13,7 +13,6 @@ function myChatRobot(rel){
 			p_b_l_2_h:32,
 			p_b_l_3_h:80,
 			p_b_l_4_h:48,
-			p_b_r_h:595,
 			p_t:'auto',
 			p_l:'auto',
 			p_r:'auto',
@@ -65,17 +64,16 @@ function myChatRobot(rel){
 			var aside_bottom_left="<dt style='float:left;width:"+klass.p_b_l_w+"px;'>"
 				+aside_bottom_left_content
 			+"</dt>";
-			var aside_bottom_right="<dd style='overflow:hidden;height:"+klass.p_b_r_h+"px;background:linear-gradient(#ffb186,#ff5a00);border-bottom-right-radius:5px;'></dd>";
+			var aside_bottom_right="<dd style='overflow:hidden;height:"+(klass.p_b_l_1_h+klass.p_b_l_2_h+klass.p_b_l_3_h+klass.p_b_l_4_h)+"px;background:linear-gradient(#ffb186,#ff5a00);border-bottom-right-radius:5px;'></dd>";
 			var aside_bottom="<dl style='padding: 0;margin: 0;'>"
 				+aside_bottom_left
 				+aside_bottom_right
 			+"</dl>";
-			var aside="<aside id='myChatRobot' style='width:"+klass.p_w+"px;position:fixed;top:"+klass.p_t+";left:"+klass.p_l+";right:"+klass.p_r+";bottom:"+klass.p_b+";box-shadow:0 0 2rem #b7c0c1;font-family:微软雅黑;font-size:14px;line-height:25px;-moz-user-select:none;-webkit-user-select: none;-ms-user-select:none;-khtml-user-select:none;user-select:none;'>"
+			var aside="<aside id='myChatRobot' style='width:"+klass.p_w+"px;height:"+(klass.p_t_h+klass.p_b_l_1_h+klass.p_b_l_2_h+klass.p_b_l_3_h+klass.p_b_l_4_h)+";position:fixed;top:"+klass.p_t+";left:"+klass.p_l+";right:"+klass.p_r+";bottom:"+klass.p_b+";box-shadow:0 0 2rem #b7c0c1;font-family:微软雅黑;font-size:14px;line-height:25px;-moz-user-select:none;-webkit-user-select: none;-ms-user-select:none;-khtml-user-select:none;user-select:none;'>"
 				+aside_top
 				+aside_bottom
 			+"</aside>";
 			$(data.option.append).append(aside);
-			$('#myChatRobot').height(klass.p_t_h+klass.p_b_l_1_h+klass.p_b_l_2_h+klass.p_b_l_3_h+klass.p_b_l_4_h);
 			$("#myChatRobotHeader").on('mousedown',function(){
 				myChatRobotDrag(event,$('#myChatRobot'));
 			});
