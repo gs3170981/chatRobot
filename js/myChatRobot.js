@@ -69,7 +69,7 @@ function myChatRobot(rel){
 				+aside_bottom_left
 				+aside_bottom_right
 			+"</dl>";
-			var aside="<aside id='myChatRobot' style='width:"+klass.p_w+"px;height:"+(klass.p_t_h+klass.p_b_l_1_h+klass.p_b_l_2_h+klass.p_b_l_3_h+klass.p_b_l_4_h)+";position:fixed;top:"+klass.p_t+";left:"+klass.p_l+";right:"+klass.p_r+";bottom:"+klass.p_b+";box-shadow:0 0 2rem #b7c0c1;font-family:微软雅黑;font-size:14px;line-height:25px;-moz-user-select:none;-webkit-user-select: none;-ms-user-select:none;-khtml-user-select:none;user-select:none;'>"
+			var aside="<aside id='myChatRobot' style='width:"+klass.p_w+"px;height:"+(klass.p_t_h+klass.p_b_l_1_h+klass.p_b_l_2_h+klass.p_b_l_3_h+klass.p_b_l_4_h)+"px;position:fixed;top:"+klass.p_t+";left:"+klass.p_l+";right:"+klass.p_r+";bottom:"+klass.p_b+";box-shadow:0 0 2rem #b7c0c1;font-family:微软雅黑;font-size:14px;line-height:25px;-moz-user-select:none;-webkit-user-select: none;-ms-user-select:none;-khtml-user-select:none;user-select:none;'>"
 				+aside_top
 				+aside_bottom
 			+"</aside>";
