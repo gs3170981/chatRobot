@@ -85,12 +85,14 @@ function myChatRobot(rel){
 			$("#myChatRobotSend").on('click',function(){
 				var val=$('#myChatRobotVal').val();
 				if(val!='')data.option.send($('#myChatRobotVal').val());
+				$('#myChatRobotList').animate({scrollTop:$('#myChatRobotList')[0].scrollHeight},'slow')
 			});
 			$('#myChatRobotVal').keydown(function(event){
 				event=document.all?window.event:event;
 		    	if((event.keyCode || event.which)==13){
 		    		var val=$('#myChatRobotVal').val();
 					if(val!='')data.option.send($('#myChatRobotVal').val());
+					$('#myChatRobotList').animate({scrollTop:$('#myChatRobotList')[0].scrollHeight},'slow')
 		    	}
 			})
 			setTimeout(function(){
