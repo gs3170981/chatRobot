@@ -16,7 +16,18 @@ function myChatRobot(rel){
 			p_t:'auto',
 			p_l:'auto',
 			p_r:'auto',
-			p_b:'auto'
+			p_b:'auto',
+			logo:''
+		},
+		data:{
+			left:{
+				title:'',
+				list:[]
+			},
+			right:{
+				title:'',
+				brief:''
+			}
 		},
 		option:{
 			send:function(data){
@@ -25,10 +36,14 @@ function myChatRobot(rel){
 			close:function(){
 				$('#myChatRobot').remove();
 			},
+			fastE:function(data){
+				console.log(data)
+			},
 			append:'body'
 		}
 	};
 	data.klass=arrForSubscript(data.klass,rel.klass);
+	data.data=arrForSubscript(data.data,rel.data);
 	data.option=arrForSubscript(data.option,rel.option);
 	//缺省字段数据处理
 	function arrForSubscript(def,rel){
@@ -47,7 +62,9 @@ function myChatRobot(rel){
 		//结构部署
 		function ready(data){
 			var klass=data.klass;
+			var rel=data.data;
 			var aside_top="<header id='myChatRobotHeader' style='height:"+klass.p_t_h+"px;cursor:default;background:linear-gradient(to right,#fb0102,#ff8686);border-radius:5px 5px 0 0;'>"
+				+"<img src="+klass.logo+" style='float:left;height:54px;width:54px;'></img>"
 				+"<img name='myChatRobotClose' src='img/close.png' style='float:right;color:#9da6ad;height:15px;width:15px;padding:15px;cursor:default;' onmouseover="+"$(this).css('background','#ff4646')"+" onmouseout="+"$(this).css('background','transparent')"+"></img>"
 			+"</header>";
 			var aside_bottom_left_content="<ul style='list-style: none;padding:0;margin:0;'>"
@@ -64,7 +81,13 @@ function myChatRobot(rel){
 			var aside_bottom_left="<dt style='float:left;width:"+klass.p_b_l_w+"px;'>"
 				+aside_bottom_left_content
 			+"</dt>";
-			var aside_bottom_right="<dd style='overflow:hidden;height:"+(klass.p_b_l_1_h+klass.p_b_l_2_h+klass.p_b_l_3_h+klass.p_b_l_4_h)+"px;background:linear-gradient(#ffb186,#ff5a00);border-bottom-right-radius:5px;'></dd>";
+			var aside_bottom_right="<dd style='overflow:hidden;height:"+(klass.p_b_l_1_h+klass.p_b_l_2_h+klass.p_b_l_3_h+klass.p_b_l_4_h)+"px;background:linear-gradient(#ffb186,#ff5a00);border-bottom-right-radius:5px;'>"
+				+"<ul style='list-style:none;overflow:hidden;padding:0;text-align:center;'>"
+					+"<li id='myChatRobotLeft' style='width:49%;cursor:pointer;float:left;'>"+rel.left.title+"</li>"
+					+"<li id='myChatRobotRight' style='width:50%;float:left;cursor:pointer;'>"+rel.right.title+"</li>"
+					+"<li id='myChatRobotMid' style='text-align:left;margin-top:40px'></li>"
+				+"</ul>"
+			+"</dd>";
 			var aside_bottom="<dl style='padding: 0;margin: 0;'>"
 				+aside_bottom_left
 				+aside_bottom_right
@@ -81,6 +104,36 @@ function myChatRobot(rel){
 			for(var i=0;i<close.length;i++)
 			$(close[i]).on('click',function(){
 				data.option.close()
+			});
+			$('#myChatRobotLeft').click(function(){
+				$('#myChatRobotRight').css('color','black');
+				$(this).css('color','white');
+				$('#myChatRobotMid p').remove();
+				var relLeftList=rel.left.list;
+				for(var i=0;i<relLeftList.length;i++){
+					$('#myChatRobotMid').append("<a data="+i+" style='display:block;margin:10px 7px;cursor:pointer;'><span style='font-size:12px;'>●　</span>"+relLeftList[i].title+"</a>");
+					$("a[data='"+i+"']").on('click','',relLeftList[i].val,function(e){
+						data.option.fastE(e.data)
+					});
+					$("a[data='"+i+"']").on('mouseover',function(e){
+						$(this).css({
+							'textDecoration':'underline',
+							'color':'white'
+						})
+					});
+					$("a[data='"+i+"']").on('mouseout',function(e){
+						$(this).css({
+							'textDecoration':'none',
+							'color':'black'
+						})
+					})
+				}
+			});
+			$('#myChatRobotRight').click(function(){
+				$('#myChatRobotLeft').css('color','black');
+				$(this).css('color','white');
+				$('#myChatRobotMid a').remove();
+				$('#myChatRobotMid').append("<p style='margin:10px'>"+rel.right.brief+"</p>");
 			});
 			$("#myChatRobotSend").on('click',function(){
 				var val=$('#myChatRobotVal').val();

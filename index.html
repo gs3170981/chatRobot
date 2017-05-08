@@ -7,7 +7,7 @@
 		<script src="js/myChatRobot.js"></script>
 	</head>
 	<body>
-		<input id="chatIntelligence" type="button" value="点击我弹出" />
+		<input style="overflow: hidden;" id="chatIntelligence" type="button" value="点击我弹出" />
 	</body>
 	<script>
 		$(function(){
@@ -17,15 +17,43 @@
 				//配置项
 				myChatRobot({
 					klass:{
-						p_w:660,
-						p_t_h:82,
-						p_b_l_w:518,
-						p_b_l_1_h:435,
-						p_b_l_2_h:32,
-						p_b_l_3_h:80,
-						p_b_l_4_h:48,
+						p_w:617,
+						p_t_h:56,
+						p_b_l_w:415,
+						p_b_l_1_h:300,
+						p_b_l_2_h:31,
+						p_b_l_3_h:91,
+						p_b_l_4_h:46,
 						p_r:'0px',
 						p_b:'0px',
+						logo:'./img/fav128.png'
+					},
+					data:{
+						left:{
+							title:'常见问题',
+							list:[
+								{
+									title:'我是一个快法务一',
+									val:0//给后台的值
+								},{
+									title:'我是一个快法务我是一个',
+									val:1
+								},{
+									title:'我是一个快法务我是一个',
+									val:2
+								},{
+									title:'我是一个快法务我是',
+									val:3
+								},{
+									title:'我是一个快法务我一个快法务',
+									val:4
+								}
+							]
+						},
+						right:{
+							title:'关于企业',
+							brief:'我是一个快法务我是一个快法务我是一个快法务我是一个快法务我是一个快法务我是一个快法务我是一个快法务我是一个快法务我是一个快法务'
+						}
 					},
 					option:{
 						send:function(data){
@@ -55,11 +83,16 @@
 							$('#myChatRobot').remove();
 							$(is).prop('disabled',false);
 						},
+						//右侧快速入口点击事件
+						fastE:function(data){
+							alert(data);
+						},
 						append:'body'
 					}
 					
 				})
 			})
+			$('#chatIntelligence').click()
 		})
 	</script>
 </html>
